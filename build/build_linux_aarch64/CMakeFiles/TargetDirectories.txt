@@ -1,0 +1,7 @@
+/home/orangepi/rknn-cpp-Multithreading-main/build/build_linux_aarch64/CMakeFiles/rknn_yolov5_demo.dir
+/home/orangepi/rknn-cpp-Multithreading-main/build/build_linux_aarch64/CMakeFiles/edit_cache.dir
+/home/orangepi/rknn-cpp-Multithreading-main/build/build_linux_aarch64/CMakeFiles/rebuild_cache.dir
+/home/orangepi/rknn-cpp-Multithreading-main/build/build_linux_aarch64/CMakeFiles/list_install_components.dir
+/home/orangepi/rknn-cpp-Multithreading-main/build/build_linux_aarch64/CMakeFiles/install.dir
+/home/orangepi/rknn-cpp-Multithreading-main/build/build_linux_aarch64/CMakeFiles/install/local.dir
+/home/orangepi/rknn-cpp-Multithreading-main/build/build_linux_aarch64/CMakeFiles/install/strip.dir
