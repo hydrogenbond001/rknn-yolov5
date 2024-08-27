@@ -41,6 +41,7 @@ This project demonstrates how to perform object detection on a video file using 
 ```bash
 cd install/rknn_yolov5_demo_Linux
 ./rknn_yolov5_demo ./model/RK3588yolov5s-640-640.rknn ../../video.mp4
+```
 
 ## License
 
