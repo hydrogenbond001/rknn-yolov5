@@ -36,7 +36,7 @@ This project demonstrates how to perform object detection on a video file using 
 
 ```bash
 ./rknn_yolov5_demo <rknn_model.rknn> <video_file.mp4>
-
+```
 ## Example
 ```bash
 cd install/rknn_yolov5_demo_Linux
