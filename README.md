@@ -38,8 +38,10 @@ This project demonstrates how to perform object detection on a video file using 
 ./rknn_yolov5_demo <rknn_model.rknn> <video_file.mp4>
 
 ## Example
+```bash
 cd install/rknn_yolov5_demo_Linux
 ./rknn_yolov5_demo ./model/RK3588yolov5s-640-640.rknn ../../video.mp4
 
 ## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
