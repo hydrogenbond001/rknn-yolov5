@@ -174,29 +174,29 @@ rknn_yolov5_demo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov5_demo.dir/build.make CMakeFiles/rknn_yolov5_demo.dir/build
 .PHONY : rknn_yolov5_demo/fast
 
-src/camera.o: src/camera.cc.o
-.PHONY : src/camera.o
+src/new.o: src/new.cc.o
+.PHONY : src/new.o
 
 # target to build an object file
-src/camera.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov5_demo.dir/build.make CMakeFiles/rknn_yolov5_demo.dir/src/camera.cc.o
-.PHONY : src/camera.cc.o
+src/new.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov5_demo.dir/build.make CMakeFiles/rknn_yolov5_demo.dir/src/new.cc.o
+.PHONY : src/new.cc.o
 
-src/camera.i: src/camera.cc.i
-.PHONY : src/camera.i
+src/new.i: src/new.cc.i
+.PHONY : src/new.i
 
 # target to preprocess a source file
-src/camera.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov5_demo.dir/build.make CMakeFiles/rknn_yolov5_demo.dir/src/camera.cc.i
-.PHONY : src/camera.cc.i
+src/new.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov5_demo.dir/build.make CMakeFiles/rknn_yolov5_demo.dir/src/new.cc.i
+.PHONY : src/new.cc.i
 
-src/camera.s: src/camera.cc.s
-.PHONY : src/camera.s
+src/new.s: src/new.cc.s
+.PHONY : src/new.s
 
 # target to generate assembly for a file
-src/camera.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov5_demo.dir/build.make CMakeFiles/rknn_yolov5_demo.dir/src/camera.cc.s
-.PHONY : src/camera.cc.s
+src/new.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov5_demo.dir/build.make CMakeFiles/rknn_yolov5_demo.dir/src/new.cc.s
+.PHONY : src/new.cc.s
 
 src/postprocess.o: src/postprocess.cc.o
 .PHONY : src/postprocess.o
@@ -283,9 +283,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... rknn_yolov5_demo"
-	@echo "... src/camera.o"
-	@echo "... src/camera.i"
-	@echo "... src/camera.s"
+	@echo "... src/new.o"
+	@echo "... src/new.i"
+	@echo "... src/new.s"
 	@echo "... src/postprocess.o"
 	@echo "... src/postprocess.i"
 	@echo "... src/postprocess.s"

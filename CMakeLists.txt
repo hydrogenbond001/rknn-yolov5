@@ -1,3 +1,5 @@
+#add_definitions("-Wall -g")
+
 cmake_minimum_required(VERSION 3.4.1)
 
 project(rknn_yolov5_demo)
@@ -40,7 +42,8 @@ set(CMAKE_INSTALL_RPATH "lib")
 include_directories( ${CMAKE_SOURCE_DIR}/include)
 
 add_executable(rknn_yolov5_demo
-		src/camera.cc
+		src/new.cc
+		#src/camera.cc
         #src/main.cc
         src/postprocess.cc
         src/preprocess.cc
