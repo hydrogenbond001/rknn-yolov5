@@ -31,6 +31,8 @@
 
 # 补充
 * 异常处理尚未完善, 目前仅支持rk3588/rk3588s下的运行
+* 模型为1.52版
+![image](https://github.com/user-attachments/assets/ebfb2a1e-7a3a-4030-a689-d6da76574560)
 
 # Acknowledgements
 * https://github.com/rockchip-linux/rknpu2
