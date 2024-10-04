@@ -5,11 +5,55 @@
 #include <string.h>
 #include <sys/time.h>
 #include <fstream>
-
 #include "RgaUtils.h"
 #include "postprocess.h"
 #include "rknn_api.h"
 #include "preprocess.h"
+
+
+#include <errno.h>
+#include <wiringPi.h>
+#include <wiringSerial.h>
+#include <pthread.h>
+#include <stdlib.h>
+int fd ;
+void uart_init()
+{
+
+	//int ret;
+
+  if ((fd = serialOpen ("/dev/ttyS0", 115200)) < 0) //打开驱动文件，配置波特率
+	{
+		fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
+		//return 1 ;
+	}
+ 
+	if (wiringPiSetup () == -1)
+	{
+		fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
+		//return 1 ;
+	}
+
+}
+
+int x,y;
+
+// 发送整数的函数
+void serialPutNumber(const int fd, int num) {
+    char buffer[32];  // 定义足够大的缓冲区来存储数字字符串
+    snprintf(buffer, sizeof(buffer), "%d", num);  // 将整数转换为字符串
+    serialPuts(fd, buffer);  // 通过 serialPuts 发送字符串
+}
+
+// 发送浮点数的函数
+void serialPutFloat(const int fd, float num) {
+    char buffer[32];  // 定义缓冲区来存储浮点数字符串
+    snprintf(buffer, sizeof(buffer), "%.2f", num);  // 将浮点数转换为字符串，保留两位小数
+    serialPuts(fd, buffer);  // 通过 serialPuts 发送字符串
+}
+
+
+
 
 // Function prototypes
 static void dump_tensor_attr(rknn_tensor_attr *attr);
@@ -107,6 +151,8 @@ static int saveFloat(const char *file_name, float *output, int element_size)
 
 int main(int argc, char **argv)
 {
+    uart_init();
+
     int ret;
     rknn_context ctx;
     int img_width = 0;
@@ -116,8 +162,9 @@ int main(int argc, char **argv)
     const float box_conf_threshold = BOX_THRESH;
     struct timeval start_time, stop_time;
 
-    char *model_name = "/home/orangepi/rknn-cpp-Multithreading-main/model/RK3588/yolov5s-640-640.rknn";
-    
+    char *model_name = "./model/RK3588/yolov5s.rknn";
+    const char* p="hello";
+
     printf("Loading model...\n");
     int model_data_size = 0;
     unsigned char *model_data = load_model(model_name, &model_data_size);
@@ -184,7 +231,9 @@ int main(int argc, char **argv)
     inputs[0].pass_through = 0;
 
     //const char* video_path = "/home/orangepi/rknn-cpp-Multithreading-main/jntm.mp4";
+    //cv::VideoCapture cap("/home/orangepi/rknn-cpp-Multithreading-main/jntm.mp4");
     cv::VideoCapture cap(0);
+    //cv::VideoCapture cap("/home/orangepi/rknn-cpp-Multithreading-main/");
     if (!cap.isOpened())
     {
         printf("Error opening video capture\n");
@@ -253,11 +302,19 @@ int main(int argc, char **argv)
             int y1 = det_result->box.top;
             int x2 = det_result->box.right;
             int y2 = det_result->box.bottom;
+            x=(x1+x2)/2;
+            y=(y1+y2)/2;
             cv::rectangle(img, cv::Point(x1, y1), cv::Point(x2, y2), cv::Scalar(0, 0, 255), 3);
             cv::putText(img, text, cv::Point(x1, y1 + 12), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255, 255, 255));
         }
+        //show position
 
+        serialPutNumber (fd,x);
+        serialPuts(fd,"    ");
+        serialPutNumber (fd,y);
+        serialPuts(fd,"\r\n");
         // Show image
+        cv::cvtColor(img, img, cv::COLOR_RGB2BGR);
         cv::imshow("Detection", img);
 
         // Release RKNN outputs

@@ -37,14 +37,18 @@ find_package(OpenCV REQUIRED)
 
 set(CMAKE_INSTALL_RPATH "lib")
 
+#WiringPi
+find_library(WIRINGPI_LIB wiringPi)
+include_directories(/usr/src/wiringOP,/wiringPi)
+
 
 # rknn_yolov5_demo
 include_directories( ${CMAKE_SOURCE_DIR}/include)
 
 add_executable(rknn_yolov5_demo
-		src/new.cc
+		#src/new.cc
 		#src/camera.cc
-        #src/main.cc
+        src/pic.cc
         src/postprocess.cc
         src/preprocess.cc
         src/rkYolov5s.cc
@@ -54,6 +58,7 @@ target_link_libraries(rknn_yolov5_demo
   ${RKNN_RT_LIB}
   ${OpenCV_LIBS}
   ${RGA_LIB}
+  ${WIRINGPI_LIB}
 )
 
 
