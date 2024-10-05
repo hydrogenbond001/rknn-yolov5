@@ -46,9 +46,9 @@ include_directories(/usr/src/wiringOP,/wiringPi)
 include_directories( ${CMAKE_SOURCE_DIR}/include)
 
 add_executable(rknn_yolov5_demo
-		#src/new.cc
-		#src/camera.cc
-        src/pic.cc
+		src/new.cc
+		#src/main.cc
+        #src/pic.cc
         src/postprocess.cc
         src/preprocess.cc
         src/rkYolov5s.cc

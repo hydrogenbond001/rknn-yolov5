@@ -318,7 +318,7 @@ int main(int argc, char **argv)
 
         // Wait for user input to exit
         //if (cv::waitKey(1) >= 0) break;
-		while(cv::waitKey(1) != 71)
+		while(cv::waitKey(1) != 'q')
         // Free the resized image memory
         resized_img.release();
     

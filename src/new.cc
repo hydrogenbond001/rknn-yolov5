@@ -1,3 +1,7 @@
+//this is for video detect ang usart communicatation
+//you can switch them in cmakelist.txt 
+
+
 #include <opencv2/opencv.hpp>
 #include <dlfcn.h>
 #include <stdio.h>
